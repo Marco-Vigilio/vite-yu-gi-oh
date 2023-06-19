@@ -2,21 +2,24 @@
     <div class="contain">
         <div class="found">Found</div>
         <div class="cards">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card v-for="element in store.arrayObject" :image=element.card_images[0].image_url :name=element.name
+                :archetype=element.archetype />
         </div>
     </div>
 </template>
 <script>
 import Card from './Card.vue';
+import { store } from '../store.js';
 export default {
     name: "",
     components: {
         Card,
-    }
+    },
+    data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -27,13 +30,14 @@ export default {
 
 .found {
     background-color: #212529;
-    width: 100%;
+    padding: 1rem;
     color: white;
 }
 
 .cards {
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 </style>
