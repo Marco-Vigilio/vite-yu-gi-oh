@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <h2>Cards</h2>
-        <Card />
+    <div class="contain">
+        <div class="found">Found</div>
+        <div class="cards">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+        </div>
     </div>
 </template>
 <script>
@@ -13,4 +19,21 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.contain {
+    background-color: white;
+    padding: 1rem;
+}
+
+.found {
+    background-color: #212529;
+    width: 100%;
+    color: white;
+}
+
+.cards {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+</style>

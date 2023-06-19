@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="card">
         <h3>Card</h3>
     </div>
 </template>
@@ -11,4 +11,8 @@ export default {
     },
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+    background-color: #d48f38;
+}
+</style>
