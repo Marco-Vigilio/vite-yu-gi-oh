@@ -30,6 +30,7 @@ export default {
         apiObject(genericUrl) {
             axios.get(genericUrl)
                 .then(risposta => {
+
                     risposta.data.data.forEach(element => {
                         this.store.arrayObject.push(element);
                         //console.log(element.archetype)
@@ -52,6 +53,9 @@ export default {
     },
     created() {
         this.apiObject(this.url);
+    },
+    updated() {
+        this.archetypeFilter(value);
     },
 }
 
