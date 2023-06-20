@@ -30,7 +30,8 @@ export default {
         apiObject(genericUrl) {
             axios.get(genericUrl)
                 .then(risposta => {
-
+                    let array = [];
+                    this.store.arrayObject = array;
                     risposta.data.data.forEach(element => {
                         this.store.arrayObject.push(element);
                         //console.log(element.archetype)
@@ -40,11 +41,16 @@ export default {
 
         archetypeFilter(value) {
             console.log(value);
-            //CAMBIO IL MIO URL
-            let filtro = this.url + "&archetype=" + value;
-            console.log(filtro);
+            if (value === "tutti") {
+                this.apiObject(this.url);
+            }
+            else {
+                //CAMBIO IL MIO URL
+                let filtro = this.url + "&archetype=" + value;
+                console.log(filtro);
 
-            this.apiObject(filtro);
+                this.apiObject(filtro);
+            }
         },
     },
     components: {

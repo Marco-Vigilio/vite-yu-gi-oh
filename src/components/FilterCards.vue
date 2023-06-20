@@ -8,6 +8,7 @@
         </select>
 -->
         <select name="filtro" id="filtro" v-model="archetypeName" @change="$emit('mostra', archetypeName)">
+            <option value="tutti">Tutti</option>
             <option :value="element" v-for="element in store.arrayObjectArchetypeName">
                 {{ element }}
             </option>
