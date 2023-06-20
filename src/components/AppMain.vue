@@ -32,6 +32,7 @@ export default {
                 .then(risposta => {
                     risposta.data.data.forEach(element => {
                         this.store.arrayObject.push(element);
+                        console.log(element)
                     });
                 });
         },
@@ -41,13 +42,14 @@ export default {
             //CAMBIO IL MIO URL
             let filtro = this.url + tagOption.value;
             console.log(filtro);
-
+            /*
             axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
                 .then(risposta => {
                     risposta.data.data.forEach(element => {
                         console.log(element);
                     });
                 });
+            */
         }
     },
     components: {
