@@ -2,7 +2,7 @@
     <main>
         <div class="contain">
             <section>
-                <FilterCards />
+                <FilterCards @mostra="miaFunzione" />
             </section>
             <section>
                 <Cards />
@@ -26,24 +26,24 @@ export default {
         }
     },
     methods: {
-        metodo() {
+        apiObject() {
             axios.get(this.url)
                 .then(risposta => {
-                    let array = risposta.data;
-                    console.log(risposta.data.data);
                     risposta.data.data.forEach(element => {
-                        console.log(element.data);
                         this.store.arrayObject.push(element);
                     });
                 });
         },
+        miaFunzione(val) {
+            console.log(val);
+        }
     },
     components: {
         Cards,
         FilterCards,
     },
     created() {
-        this.metodo();
+        this.apiObject();
     },
 }
 
