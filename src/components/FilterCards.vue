@@ -6,9 +6,8 @@
             <option value="Op2">Op2</option>
         </select>
 
-        <select name="filtro" id="filtro">
-            <option value="">Tutti</option>
-            <option value="" v-for="element in store.arrayObjectArchetypeName">{{ element }}</option>
+        <select name="filtro" id="filtro" @change="mioMetodo(), $emit('mostra', valore)">
+            <option :value="element" v-for="element in store.arrayObjectArchetypeName">{{ element }}</option>
         </select>
     </div>
 </template>
@@ -37,7 +36,7 @@ export default {
         apiArchetypesList() {
             axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
                 .then(risposta => {
-                    for (let index = 0; index < 5; index++) {
+                    for (let index = 0; index < 7; index++) {
                         this.store.arrayObjectArchetypeName.push(risposta.data[index].archetype_name);
                     }
 

@@ -32,7 +32,7 @@ export default {
                 .then(risposta => {
                     risposta.data.data.forEach(element => {
                         this.store.arrayObject.push(element);
-                        console.log(element)
+                        console.log(element.archetype)
                     });
                 });
         },
@@ -40,8 +40,9 @@ export default {
         miaFunzione(tagOption) {
             console.log(tagOption.value);
             //CAMBIO IL MIO URL
-            let filtro = this.url + tagOption.value;
+            let filtro = this.url + "&archetype=" + tagOption.value;
             console.log(filtro);
+
             /*
             axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
                 .then(risposta => {
