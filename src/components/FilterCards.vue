@@ -31,7 +31,7 @@ export default {
         apiArchetypesList() {
             axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
                 .then(risposta => {
-                    for (let index = 0; index < 7; index++) {
+                    for (let index = 0; index < 15; index++) {
                         this.archetypeName = risposta.data[index].archetype_name;
                         this.store.arrayObjectArchetypeName.push(risposta.data[index].archetype_name);
                     }

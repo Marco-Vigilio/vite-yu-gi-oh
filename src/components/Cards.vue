@@ -1,6 +1,6 @@
 <template>
     <div class="contain">
-        <div class="found">Found</div>
+        <div class="found">Found {{ store.arrayObject.length }} Cards</div>
         <div class="cards">
             <Card v-for="element in store.arrayObject" :image=element.card_images[0].image_url :name=element.name
                 :archetype=element.archetype />
