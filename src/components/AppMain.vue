@@ -2,7 +2,7 @@
     <main>
         <div class="contain">
             <section>
-                <select name="name" id="name"></select>
+                <FilterCards />
             </section>
             <section>
                 <Cards />
@@ -15,17 +15,19 @@
 //import { store } from '../store';
 import axios from 'axios';
 import { store } from '../store.js';
+import FilterCards from './filterCards.vue';
 import Cards from './Cards.vue';
 export default {
     name: "Main",
     data() {
         return {
-            store
+            url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0",
+            store,
         }
     },
     methods: {
         metodo() {
-            axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
+            axios.get(this.url)
                 .then(risposta => {
                     let array = risposta.data;
                     console.log(risposta.data.data);
@@ -38,6 +40,7 @@ export default {
     },
     components: {
         Cards,
+        FilterCards,
     },
     created() {
         this.metodo();

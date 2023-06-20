@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-    name: "",
+    name: "Card",
     data() {
         return {
         }
