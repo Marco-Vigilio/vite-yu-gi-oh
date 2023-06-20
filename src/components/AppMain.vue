@@ -2,7 +2,7 @@
     <main>
         <div class="contain">
             <section>
-                <FilterCards @mostra="miaFunzione" />
+                <FilterCards @mostra="archetypeFilter" />
                 <!--@mostra="miaFunzione"-->
             </section>
             <section>
@@ -27,38 +27,31 @@ export default {
         }
     },
     methods: {
-        apiObject() {
-            axios.get(this.url)
+        apiObject(genericUrl) {
+            axios.get(genericUrl)
                 .then(risposta => {
                     risposta.data.data.forEach(element => {
                         this.store.arrayObject.push(element);
-                        console.log(element.archetype)
+                        //console.log(element.archetype)
                     });
                 });
         },
 
-        miaFunzione(tagOption) {
-            console.log(tagOption.value);
+        archetypeFilter(value) {
+            console.log(value);
             //CAMBIO IL MIO URL
-            let filtro = this.url + "&archetype=" + tagOption.value;
+            let filtro = this.url + "&archetype=" + value;
             console.log(filtro);
 
-            /*
-            axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
-                .then(risposta => {
-                    risposta.data.data.forEach(element => {
-                        console.log(element);
-                    });
-                });
-            */
-        }
+            this.apiObject(filtro);
+        },
     },
     components: {
         Cards,
         FilterCards,
     },
     created() {
-        this.apiObject();
+        this.apiObject(this.url);
     },
 }
 
